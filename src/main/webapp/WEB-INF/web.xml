@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app>
+	<display-name>demo</display-name>
+
+	<servlet>
+		<!--servlet内部名称-->
+		<servlet-name>base</servlet-name>
+		<!--servlet的类全名-->
+		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+	<servlet-mapping>
+		<!--servlet的内部名称，对应servlet标签的name-->
+		<servlet-name>base</servlet-name>
+		<!--映射访问路径,/ 处理所有请求-->
+		<url-pattern>/*</url-pattern>
+	</servlet-mapping>
+
+</web-app>
