@@ -15,5 +15,8 @@
 		<!--映射访问路径,/ 处理所有请求-->
 		<url-pattern>/*</url-pattern>
 	</servlet-mapping>
-
+	<error-page>
+		<error-code>500</error-code>
+		<location>/Exception</location>
+	</error-page>
 </web-app>

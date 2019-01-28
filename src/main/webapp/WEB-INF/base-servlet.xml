@@ -11,27 +11,5 @@
 	<!-- 配置注解驱动 -->
 	<mvc:annotation-driven/>
 
-	<!--fastjson-->
-	<mvc:annotation-driven>
-		<mvc:message-converters>
-			<bean class="com.alibaba.fastjson.support.spring.FastJsonHttpMessageConverter"/>
-		</mvc:message-converters>
-	</mvc:annotation-driven>
-
-	<!--<mvc:interceptors>-->
-	<!--<mvc:interceptor>-->
-	<!--<mvc:mapping path="/*">-->
-	<!--<bean class="com.hyq.demo.HelloWorldController"></bean>-->
-	<!--</mvc:mapping>-->
-	<!--</mvc:interceptor>-->
-	<!--</mvc:interceptors>-->
-
-	<!--解析jsp-->
-	<!--<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">-->
-	<!--<property name="prefix" value="/">-->
-	<!--</property>-->
-	<!--<property name="suffix" value=".jsp"></property>-->
-	<!--</bean>-->
-
 
 </beans>
