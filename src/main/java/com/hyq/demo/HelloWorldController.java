@@ -8,10 +8,16 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @Controller
 public class HelloWorldController extends Base {
 
-  @RequestMapping("helloworld")
+  @RequestMapping(value="helloworld")
   @ResponseBody
-  public Result helloWorld() {
-    Result res = new Result();
+  public User helloWorld() {
+//    Result res = new Result();
+
+    User res = new User();
     return res;
+  }
+
+  public class User{
+    String name = "asdasd";
   }
 }

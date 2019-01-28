@@ -10,6 +10,12 @@
 	<context:component-scan base-package="com.hyq.demo"/>
 	<!-- 配置注解驱动 -->
 	<mvc:annotation-driven/>
-
-
+	<!--<bean id="jacksonMessageConverter" class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter">-->
+		<!--&lt;!&ndash;解决 HttpMediaTypeNotAcceptableException: Could not find acceptable representation &ndash;&gt;-->
+		<!--<property name="supportedMediaTypes">-->
+			<!--<list>-->
+				<!--<value>text/html;charset=UTF-8</value>-->
+			<!--</list>-->
+		<!--</property>-->
+	<!--</bean>-->
 </beans>
