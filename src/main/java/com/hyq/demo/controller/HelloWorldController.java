@@ -23,9 +23,10 @@ public class HelloWorldController extends Base {
   public Result welcome(HttpServletResponse response) {
     Result result = new Result();
     result.setMessage("welcome this project");
-    //
-    System.out.println(userMapper.findAll());
 
+    List allUserList = userMapper.findAll();
+
+    result.setData(allUserList);
     return result;
   }
 
