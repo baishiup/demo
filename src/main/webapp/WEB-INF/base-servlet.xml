@@ -6,12 +6,20 @@
 			 xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
         http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.0.xsd
         http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd">
-	<!-- 配置自动扫描的包 -->
+
+	<!-- properties配置 -->
+	<bean id="propertyConfigurer" class="org.springframework.beans.factory.config.PreferencesPlaceholderConfigurer">
+		<property name="locations">
+			<list>
+				<value>classpath*:/properties/jdbc.properties</value>
+			</list>
+		</property>
+	</bean>
+	<!-- 配置自动扫描的包(class,可以自动支持所有@controller @RequestMapping等) -->
 	<context:component-scan base-package="com.hyq.demo"/>
 
 	<!-- 配置注解驱动 -->
 	<!--<mvc:annotation-driven/>-->
-
 	<mvc:annotation-driven>
 		<mvc:message-converters>
 			<!-- 设置fastjson 并返回json格式  -->
@@ -24,4 +32,40 @@
 			</bean>
 		</mvc:message-converters>
 	</mvc:annotation-driven>
+
+	<!-- 数据库 -->
+	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
+		<!-- username -->
+		<property name="username" value="root"/>
+		<property name="password" value=""/>
+		<!-- configure -->
+		<property name="driverClassName" value="com.mysql.jdbc.Driver"/>
+		<property name="url">
+			<value>${jdbc.url}</value>
+		</property>
+		<property name="initialSize" value="1"/>
+		<property name="maxActive" value="10"/>
+		<property name="maxIdle" value="1"/>
+		<property name="defaultAutoCommit" value="false"/>
+		<property name="removeAbandoned" value="true"/>
+		<property name="removeAbandonedTimeout" value="180"/>
+		<property name="maxWait" value="5000"/>
+		<property name="logAbandoned" value="true"/>
+		<property name="validationQuery" value="select 1 from dual"/>
+		<property name="testOnBorrow" value="true"/>
+		<property name="testOnReturn" value="false"/>
+		<property name="testWhileIdle" value="true"/>
+		<property name="timeBetweenEvictionRunsMillis" value="15000"/>
+		<property name="numTestsPerEvictionRun" value="10"/>
+		<property name="minEvictableIdleTimeMillis" value="600000"/>
+	</bean>
+	<!-- myBatis -->
+	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+		<property name="dataSource" ref="dataSource"/>
+	</bean>
+	<!-- 自动注入myBatis Mapper -->
+	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+		<property name="basePackage" value="com.hyq.demo.mapper"></property>
+	</bean>
+
 </beans>
