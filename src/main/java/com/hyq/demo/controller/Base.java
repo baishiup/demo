@@ -1,5 +1,7 @@
 package com.hyq.demo.controller;
 
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -10,8 +12,8 @@ public class Base {
     private int state = 0;
     private String message = "";
 
-    private List data;
-    private Map attributes;
+    private List data = new ArrayList();
+    private Map attributes = new HashMap();
 
     public Map getAttributes() {
       return attributes;
