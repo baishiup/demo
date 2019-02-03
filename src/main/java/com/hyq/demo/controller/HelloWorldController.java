@@ -22,10 +22,17 @@ public class HelloWorldController extends Base {
   @ResponseBody
   public Result welcome(HttpServletResponse response) {
     Result result = new Result();
-    result.setMessage("welcome this project");
+    result.setMessage("welcome this project阿萨");
 
     List allUserList = userMapper.findAll();
 
+    // 插入一条
+    userMapper.addUser("测试" + allUserList.size(),1211111113);
+
+
+    for (int i = 0; i < allUserList.size(); i++) {
+      System.out.println(allUserList.get(i).toString());
+    }
     result.setData(allUserList);
     return result;
   }

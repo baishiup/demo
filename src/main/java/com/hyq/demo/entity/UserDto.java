@@ -2,6 +2,15 @@ package com.hyq.demo.entity;
 
 public class UserDto {
   private String name;
+
+  @Override
+  public String toString() {
+    return "UserDto{" +
+            "name='" + name + '\'' +
+            ", age=" + age +
+            '}';
+  }
+
   private int age;
 
   public String getName() {

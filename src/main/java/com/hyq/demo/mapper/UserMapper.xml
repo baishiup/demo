@@ -8,4 +8,8 @@
 	<select id="findAll" resultMap="UserMap">
 		select * from user
 	</select>
+
+	<insert id="addUser" parameterType="com.hyq.demo.entity.UserDto">
+		insert into user(name,age)values(#{name}, #{age})
+	</insert>
 </mapper>
