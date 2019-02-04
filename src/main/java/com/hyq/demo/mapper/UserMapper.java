@@ -7,8 +7,8 @@ import java.util.List;
 import java.util.Map;
 
 public interface UserMapper {
-  public List<Object> findAll();
-//  @Param("startDate")String startDate,
+  public List findAll();
+
   public void addUser(@Param("name")String name,@Param("age")int age);
 }
 
